@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(jok.jpg);
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+        }
+        h1{
+            color:red;
+            text-transform: uppercase;
+            font-size: 30px;
+            padding-top: 10%;
+            word-spacing: 5px;
+          }
+        .table{
+            display: table;
+            width:90%;
+            margin:10px auto;
+            background-color: bisque;
+            padding:10px;
+        }
+        .row{
+            display: table-row;
+            padding: 5px;
+        }
+        .confirm{
+            padding:5px;
+        }
+        nav{
+            text-decoration:none;
+            font-weight: 900;
+            font-size: 14px;
+            text-align: center;
+            padding: 12px 25px;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 5px;
+            display: inline-block;
+            margin-right: 50px;
+            color: #fff;
+            letter-spacing: 0;
+            background-image: linear-gradient(to right,#4458dc 0%,#854fee 100%);
+            border:double 2px transparent;
+            box-shadow: 0 10px 30px rgba(118,85,225,.3);
+            top: 20vh;
+        
+
+          }
+         
+    </style>
+</head>
+<body>
+    <center>
+    <nav>
+        <a href="/api/librarian/confirmedBookings">Confirmed Bookings</a>
+    </nav>
+    <h1>Librarian Page (To see the total bookings and confirm or cancel booking)</h1>
+    <div class="table">
+        <% bookings.forEach(function(booking){ %>
+        <div class="row">
+            <div><tr>User Who Booked The Book</tr></div>
+        </div>
+        <div class="row">
+            <div><tr><%= booking.book.name %></tr></div>
+        </div>    
+        <div class="row">
+            <div>            
+                <tr> <a href="/api/librarian/confirm/<%= booking.id %>"> <button1 class='confirm'>Confirm</button> </a></tr>
+                <tr> <a href="/api/librarian/book/renew/<%= booking.id %>"> <button2 class='confirm'>Renew</button> </a> </tr>
+                <tr> <a href="/api/librarian/book/return/<%= booking.id %>"> <button3 class='confirm'>Return</button> </a> </tr>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</center>
+</body>
+</html>
